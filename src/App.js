@@ -61,12 +61,28 @@ const App = () => {
               Previous dog
             </button>
           </div>
-          <div style={{ alignItems: 'center', backgroundColor: 'lightblue' }}>
-            <img
-              style={{ alignSelf: 'center', height: 200 }}
-              src={dogs[index].url}
-            />{' '}
-            <p style={{ textAlign: 'center' }}>{dogs[index].title}</p>
+          <div
+            style={{
+              backgroundColor: 'lightblue',
+              display: 'flex',
+              justifyContent: 'center'
+            }}
+          >
+            <div
+              style={{
+                display: 'grid',
+                placeItems: 'center'
+              }}
+            >
+              <img
+                style={{
+                  height: 200,
+                  justifySelf: 'center'
+                }}
+                src={dogs[index].url}
+              />{' '}
+              <p style={{ textAlign: 'center' }}>{dogs[index].title}</p>
+            </div>
           </div>
           <div
             style={{
