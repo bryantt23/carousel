@@ -60,8 +60,23 @@ const App = () => {
             <img style={{ alignSelf: 'center' }} src={dogs[index].url} />{' '}
             <p style={{ textAlign: 'center' }}>{dogs[index].title}</p>
           </div>
-          <div style={{ flex: '1' }}>
+          <div
+            style={{
+              backgroundColor: 'lightgreen',
+              // justifyContent: 'center'
+              // paddingRight: 0
+              display: 'flex',
+              justifyContent: 'flex-start'
+            }}
+          >
             <button
+              style={{
+                backgroundColor: 'lightcoral',
+                // justifySelf: 'center',
+                // display: 'inline-block',
+                // margin: '0 auto'
+                alignSelf: 'flex-end'
+              }}
               // style={{ flexGrow: '1 1 0' }}
               onClick={() => changeIndex(index + 1)}
             >
