@@ -33,32 +33,36 @@ const App = () => {
   return (
     <section>
       {dogs.length > 0 ? (
-        <div>
-          {/* <p>index: {index}</p>{" "} */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 4fr 1fr' }}>
           <div
             style={{
+              backgroundColor: 'lightgreen',
+              // justifyContent: 'center'
+              // paddingRight: 0
               display: 'flex',
-              justifyContent: 'center',
-              height: 200,
-              width: 'auto',
-              paddingBottom: 20
+              justifyContent: 'flex-end'
             }}
           >
-            <img src={dogs[index].url} />
-          </div>{' '}
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <button
-              style={{ flex: '1 1 0' }}
+              style={{
+                backgroundColor: 'lightcoral',
+                // justifySelf: 'center',
+                // display: 'inline-block',
+                // margin: '0 auto'
+                alignSelf: 'flex-end'
+              }}
               onClick={() => changeIndex(index - 1)}
             >
               Previous dog
             </button>
-            <span style={{ maxHeight: 10, flexGrow: '8 1 0' }}>
-              {dogs[index].title}
-            </span>
-
+          </div>
+          <div style={{ alignItems: 'center', backgroundColor: 'lightblue' }}>
+            <img style={{ alignSelf: 'center' }} src={dogs[index].url} />{' '}
+            <p style={{ textAlign: 'center' }}>{dogs[index].title}</p>
+          </div>
+          <div style={{ flex: '1' }}>
             <button
-              style={{ flexGrow: '1 1 0' }}
+              // style={{ flexGrow: '1 1 0' }}
               onClick={() => changeIndex(index + 1)}
             >
               Next dog
