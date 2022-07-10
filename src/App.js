@@ -33,7 +33,12 @@ const App = () => {
   return (
     <section>
       {dogs.length > 0 ? (
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 4fr 1fr' }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 4fr 1fr'
+          }}
+        >
           <div
             style={{
               backgroundColor: 'lightgreen',
@@ -57,7 +62,10 @@ const App = () => {
             </button>
           </div>
           <div style={{ alignItems: 'center', backgroundColor: 'lightblue' }}>
-            <img style={{ alignSelf: 'center' }} src={dogs[index].url} />{' '}
+            <img
+              style={{ alignSelf: 'center', height: 200 }}
+              src={dogs[index].url}
+            />{' '}
             <p style={{ textAlign: 'center' }}>{dogs[index].title}</p>
           </div>
           <div
