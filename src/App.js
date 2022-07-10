@@ -36,24 +36,18 @@ const App = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: '1fr 4fr 1fr'
+            gridTemplateColumns: '1fr 4fr 1fr',
+            height: 300
           }}
         >
           <div
             style={{
-              backgroundColor: 'lightgreen',
-              // justifyContent: 'center'
-              // paddingRight: 0
               display: 'flex',
               justifyContent: 'flex-end'
             }}
           >
             <button
               style={{
-                backgroundColor: 'lightcoral',
-                // justifySelf: 'center',
-                // display: 'inline-block',
-                // margin: '0 auto'
                 alignSelf: 'flex-end'
               }}
               onClick={() => changeIndex(index - 1)}
@@ -63,9 +57,11 @@ const App = () => {
           </div>
           <div
             style={{
-              backgroundColor: 'lightblue',
               display: 'flex',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              border: '1px solid black',
+              margin: '0 5px',
+              padding: 5
             }}
           >
             <div
@@ -80,28 +76,20 @@ const App = () => {
                   justifySelf: 'center'
                 }}
                 src={dogs[index].url}
-              />{' '}
+              />
               <p style={{ textAlign: 'center' }}>{dogs[index].title}</p>
             </div>
           </div>
           <div
             style={{
-              backgroundColor: 'lightgreen',
-              // justifyContent: 'center'
-              // paddingRight: 0
               display: 'flex',
               justifyContent: 'flex-start'
             }}
           >
             <button
               style={{
-                backgroundColor: 'lightcoral',
-                // justifySelf: 'center',
-                // display: 'inline-block',
-                // margin: '0 auto'
                 alignSelf: 'flex-end'
               }}
-              // style={{ flexGrow: '1 1 0' }}
               onClick={() => changeIndex(index + 1)}
             >
               Next dog
