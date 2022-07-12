@@ -143,6 +143,42 @@ const App = () => {
               </div>
             </div>
             {/* middle section */}
+
+            {/* comment section */}
+            <div
+              style={{
+                display: 'grid',
+                gridColumn: '1/4',
+                gridTemplateColumns: '1fr 4fr 1fr'
+              }}
+            >
+              <div
+                style={{
+                  gridColumn: '2/3',
+                  backgroundColor: 'blue'
+                }}
+              >
+                {' '}
+                <h3>Comments</h3>
+                <ul style={{ listStyle: 'none' }}>
+                  {dogs[index].comments.map(
+                    ({ comment, upvoteCount }, commentIndex) => (
+                      <li>
+                        {comment}
+                        {/* commentIndex: {commentIndex} */}
+                        <p>
+                          Votes: {upvoteCount}{' '}
+                          <button onClick={() => increaseVote(commentIndex)}>
+                            Vote
+                          </button>
+                        </p>
+                      </li>
+                    )
+                  )}
+                </ul>
+              </div>
+            </div>
+            {/* comment section */}
           </div>
         </div>
       ) : (
