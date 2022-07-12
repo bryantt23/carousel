@@ -103,49 +103,43 @@ const App = () => {
             >
               <div
                 style={{
+                  display: 'flex',
+                  justifyContent: 'flex-end',
+                  alignSelf: 'flex-end',
                   gridColumn: '1/2'
                 }}
               >
-                <button
-                  style={
-                    {
-                      // display: 'flex',
-                      // justifyContent: 'flex-end',
-                      // alignSelf: 'flex-end',
-                      // justifySelf: 'flex-end'
-                    }
-                  }
-                  onClick={() => changeIndex(index - 1)}
-                >
+                <button onClick={() => changeIndex(index - 1)}>
                   Previous dog
                 </button>
               </div>
               <div
                 style={{
-                  // display: 'grid',
-                  // placeItems: 'center',
                   gridColumn: '2/3',
                   backgroundColor: 'yellow'
                 }}
               >
-                <p style={{ textAlign: 'center' }}>{dogs[index].title}</p>
+                <p
+                  style={{
+                    textAlign: 'center',
+                    marginBottom: 0,
+
+                    verticalAlign: 'bottom'
+                  }}
+                >
+                  {dogs[index].title}
+                </p>
               </div>
 
               <div
                 style={{
                   gridColumn: '3/4',
                   display: 'flex',
-                  justifyContent: 'flex-start'
+                  justifyContent: 'flex-start',
+                  alignSelf: 'flex-end'
                 }}
               >
-                <button
-                  style={{
-                    alignSelf: 'flex-start'
-                  }}
-                  onClick={() => changeIndex(index + 1)}
-                >
-                  Next dog
-                </button>
+                <button onClick={() => changeIndex(index + 1)}>Next dog</button>
               </div>
             </div>
             {/* middle section */}
