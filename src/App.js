@@ -15,9 +15,9 @@ const App = () => {
       return {
         ...elem,
         comments: [
-          // { comment: "placeholder one", upvoteCount: 1 },
-          // { comment: "placeholder two", upvoteCount: 200 },
-          // { comment: "placeholder three", upvoteCount: 3 }
+          { comment: 'placeholder one', upvoteCount: 1 },
+          { comment: 'placeholder two', upvoteCount: 200 },
+          { comment: 'placeholder three', upvoteCount: 3 }
         ]
       };
     });
@@ -171,24 +171,36 @@ const App = () => {
                 <button onClick={addComment}>Add comment</button>
               </div>
             </div>
-            <div>
-              <h3>Comments</h3>
-              <ul style={{ listStyle: 'none' }}>
-                {dogs[index].comments.map(
-                  ({ comment, upvoteCount }, commentIndex) => (
-                    <li>
-                      {comment}
-                      {/* commentIndex: {commentIndex} */}
-                      <p>
-                        Votes: {upvoteCount}{' '}
-                        <button onClick={() => increaseVote(commentIndex)}>
-                          Vote
-                        </button>
-                      </p>
-                    </li>
-                  )
-                )}
-              </ul>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 4fr 1fr',
+                backgroundColor: 'beige'
+              }}
+            >
+              <div style={{ gridColumn: '2/3' }}>
+                <h3>Comments</h3>
+                <ul
+                  style={{
+                    listStyle: 'none',
+                    paddingLeft: 0
+                  }}
+                >
+                  {dogs[index].comments.map(
+                    ({ comment, upvoteCount }, commentIndex) => (
+                      <li style={{ margin: 5, border: '1px black solid' }}>
+                        {comment}
+                        <p>
+                          Votes: {upvoteCount}{' '}
+                          <button onClick={() => increaseVote(commentIndex)}>
+                            Vote
+                          </button>
+                        </p>
+                      </li>
+                    )
+                  )}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
