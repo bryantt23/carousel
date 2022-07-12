@@ -70,24 +70,42 @@ const App = () => {
   return (
     <section>
       {dogs.length > 0 ? (
-        <div>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 4fr 1fr',
+            height: 300,
+            backgroundColor: 'pink'
+          }}
+        >
           <div
             style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 4fr 1fr',
-              height: 300,
-              backgroundColor: 'pink'
+              gridColumn: '1/4',
+              display: 'flex',
+              height: 200,
+              justifyContent: 'center',
+              padding: 10
             }}
+          >
+            <img src={dogs[index].url} />
+          </div>
+          <div
+          // style={{
+          //   backgroundColor: 'red',
+          //   gridColumn: '1/4'
+          // }}
           >
             <div
               style={{
+                gridColumn: '1/2',
                 display: 'flex',
                 justifyContent: 'flex-end'
               }}
             >
               <button
                 style={{
-                  alignSelf: 'flex-start'
+                  alignSelf: 'flex-end',
+                  justifySelf: 'flex-end'
                 }}
                 onClick={() => changeIndex(index - 1)}
               >
@@ -96,29 +114,21 @@ const App = () => {
             </div>
             <div
               style={{
-                display: 'flex',
-                justifyContent: 'center',
-                margin: '0 5px',
-                padding: 5
+                display: 'grid',
+                placeItems: 'center',
+                gridColumn: '2/3'
               }}
             >
-              <div
-                style={{
-                  display: 'grid',
-                  placeItems: 'center'
-                }}
-              >
-                <img
-                  style={{
-                    height: 200,
-                    justifySelf: 'center'
-                  }}
-                  src={dogs[index].url}
-                />
-                <p style={{ textAlign: 'center' }}>{dogs[index].title}</p>
-                <div></div>
-              </div>
+              <p style={{ textAlign: 'center' }}>{dogs[index].title}</p>
             </div>
+            <div
+              style={{
+                // display: 'flex',
+                justifyContent: 'center'
+                // margin: '0 5px',
+                // padding: 5
+              }}
+            ></div>
             <div
               style={{
                 display: 'flex',
