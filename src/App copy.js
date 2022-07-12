@@ -67,95 +67,90 @@ const App = () => {
     setIndex(indexTemp);
   };
 
-  return (
-    <section>
-      {dogs.length > 0 ? (
-        <div>
+  return <section>{dogs.length > 0 ? <div>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 4fr 1fr',
+            height: 300,
+            backgroundColor: 'pink'
+          }}
+        >
           <div
             style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 4fr 1fr',
-              height: 300,
-              backgroundColor: 'pink'
+              gridColumn: '1/4',
+              display: 'flex',
+              height: 200,
+              justifyContent: 'center',
+              padding: 10
             }}
           >
-            {/* top section */}
+            <img src={dogs[index].url} />
+          </div>
+
+          <div
+            style={{
+              gridColumn: '1/4'
+            }}
+          >
             <div
               style={{
-                gridColumn: '1/4',
+                gridColumn: '1/2',
                 display: 'flex',
-                height: 200,
-                justifyContent: 'center',
-                padding: 10
+                justifyContent: 'flex-end'
               }}
             >
-              <img src={dogs[index].url} />
+              <button
+                style={{
+                  alignSelf: 'flex-end',
+                  justifySelf: 'flex-end'
+                }}
+                onClick={() => changeIndex(index - 1)}
+              >
+                Previous dog
+              </button>
             </div>
-            {/* top section */}
-
-            {/* middle section */}
+          </div>
+          <div
+          // style={{
+          //   backgroundColor: 'red',
+          //   gridColumn: '1/4'
+          // }}
+          >
+            {' '}
             <div
               style={{
                 display: 'grid',
-                gridColumn: '1/4',
-                gridTemplateColumns: '1fr 4fr 1fr'
+                placeItems: 'center',
+                gridColumn: '2/3'
               }}
             >
-              <div
-                style={{
-                  gridColumn: '1/2'
-                }}
-              >
-                <button
-                  style={
-                    {
-                      // display: 'flex',
-                      // justifyContent: 'flex-end',
-                      // alignSelf: 'flex-end',
-                      // justifySelf: 'flex-end'
-                    }
-                  }
-                  onClick={() => changeIndex(index - 1)}
-                >
-                  Previous dog
-                </button>
-              </div>
-              <div
-                style={{
-                  // display: 'grid',
-                  // placeItems: 'center',
-                  gridColumn: '2/3',
-                  backgroundColor: 'yellow'
-                }}
-              >
-                <p style={{ textAlign: 'center' }}>{dogs[index].title}</p>
-              </div>
-
-              <div
-                style={{
-                  gridColumn: '3/4',
-                  display: 'flex',
-                  justifyContent: 'flex-start'
-                }}
-              >
-                <button
-                  style={{
-                    alignSelf: 'flex-start'
-                  }}
-                  onClick={() => changeIndex(index + 1)}
-                >
-                  Next dog
-                </button>
-              </div>
+              <p style={{ textAlign: 'center' }}>{dogs[index].title}</p>
             </div>
-            {/* middle section */}
-          </div>
-        </div>
-      ) : (
-        <p>Loading...</p>
-      )}
-    </section>
-  );
+            <div
+              style={{
+                // display: 'flex',
+                justifyContent: 'center'
+                // margin: '0 5px',
+                // padding: 5
+              }}
+            ></div>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'flex-start'
+              }}
+            >
+              <button
+                style={{
+                  alignSelf: 'flex-start'
+                }}
+                onClick={() => changeIndex(index + 1)}
+              >
+                Next dog
+              </button>
+            </div>
+          </div></div> : <p>Loading...</p>}</section>;
 };
 
 export default App;
