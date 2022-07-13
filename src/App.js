@@ -160,6 +160,18 @@ const App = () => {
               >
                 {' '}
                 <h3>Comments</h3>
+                <input
+                  style={{
+                    width: '80%',
+                    paddingLeft: 5,
+                    paddingRight: 5
+                  }}
+                  value={comment}
+                  type='text'
+                  onChange={e => setComment(e.target.value)}
+                />
+                <br />
+                <button onClick={addComment}>Add comment</button>
                 <ul style={{ listStyle: 'none' }}>
                   {dogs[index].comments.map(
                     ({ comment, upvoteCount }, commentIndex) => (
