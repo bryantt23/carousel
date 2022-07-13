@@ -158,10 +158,10 @@ const App = () => {
               />
               <br />
               <button onClick={addComment}>Add comment</button>
-              <ul style={{ listStyle: 'none' }}>
+              <ul style={{ listStyle: 'none', padding: 0 }}>
                 {dogs[index].comments.map(
                   ({ comment, upvoteCount }, commentIndex) => (
-                    <li>
+                    <li style={{ border: '1px solid black', padding: 5 }}>
                       {comment}
                       <p>
                         Votes: {upvoteCount}{' '}
