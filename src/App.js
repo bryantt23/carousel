@@ -75,6 +75,7 @@ const App = () => {
             style={{
               display: 'grid',
               gridTemplateColumns: '1fr 4fr 1fr',
+              gridTemplateRows: 'repeat(3, 1fr)',
               height: 300,
               backgroundColor: 'pink'
             }}
@@ -96,99 +97,82 @@ const App = () => {
             {/* middle section */}
             <div
               style={{
-                display: 'grid',
-                gridColumn: '1/4',
-                gridTemplateColumns: '1fr 4fr 1fr'
+                display: 'flex',
+                justifyContent: 'flex-end',
+                alignSelf: 'flex-end',
+                gridColumn: '1/2'
               }}
             >
-              <div
+              <button onClick={() => changeIndex(index - 1)}>
+                Previous dog
+              </button>
+            </div>
+            <div
+              style={{
+                gridColumn: '2/3',
+                backgroundColor: 'yellow'
+              }}
+            >
+              <p
                 style={{
-                  display: 'flex',
-                  justifyContent: 'flex-end',
-                  alignSelf: 'flex-end',
-                  gridColumn: '1/2'
-                }}
-              >
-                <button onClick={() => changeIndex(index - 1)}>
-                  Previous dog
-                </button>
-              </div>
-              <div
-                style={{
-                  gridColumn: '2/3',
-                  backgroundColor: 'yellow'
-                }}
-              >
-                <p
-                  style={{
-                    textAlign: 'center',
-                    marginBottom: 0,
+                  textAlign: 'center',
+                  marginBottom: 0,
 
-                    verticalAlign: 'bottom'
-                  }}
-                >
-                  {dogs[index].title}
-                </p>
-              </div>
-
-              <div
-                style={{
-                  gridColumn: '3/4',
-                  display: 'flex',
-                  justifyContent: 'flex-start',
-                  alignSelf: 'flex-end'
+                  verticalAlign: 'bottom'
                 }}
               >
-                <button onClick={() => changeIndex(index + 1)}>Next dog</button>
-              </div>
+                {dogs[index].title}
+              </p>
+            </div>
+
+            <div
+              style={{
+                gridColumn: '3/4',
+                display: 'flex',
+                justifyContent: 'flex-start',
+                alignSelf: 'flex-end'
+              }}
+            >
+              <button onClick={() => changeIndex(index + 1)}>Next dog</button>
             </div>
             {/* middle section */}
 
             {/* comment section */}
             <div
               style={{
-                display: 'grid',
-                gridColumn: '1/4',
-                gridTemplateColumns: '1fr 4fr 1fr'
+                gridColumn: '2/3',
+                backgroundColor: 'blue'
               }}
             >
-              <div
+              {' '}
+              <h3>Comments</h3>
+              <input
                 style={{
-                  gridColumn: '2/3',
-                  backgroundColor: 'blue'
+                  width: '80%',
+                  paddingLeft: 5,
+                  paddingRight: 5
                 }}
-              >
-                {' '}
-                <h3>Comments</h3>
-                <input
-                  style={{
-                    width: '80%',
-                    paddingLeft: 5,
-                    paddingRight: 5
-                  }}
-                  value={comment}
-                  type='text'
-                  onChange={e => setComment(e.target.value)}
-                />
-                <br />
-                <button onClick={addComment}>Add comment</button>
-                <ul style={{ listStyle: 'none' }}>
-                  {dogs[index].comments.map(
-                    ({ comment, upvoteCount }, commentIndex) => (
-                      <li>
-                        {comment}
-                        {/* commentIndex: {commentIndex} */}
-                        <p>
-                          Votes: {upvoteCount}{' '}
-                          <button onClick={() => increaseVote(commentIndex)}>
-                            Vote
-                          </button>
-                        </p>
-                      </li>
-                    )
-                  )}
-                </ul>
-              </div>
+                value={comment}
+                type='text'
+                onChange={e => setComment(e.target.value)}
+              />
+              <br />
+              <button onClick={addComment}>Add comment</button>
+              <ul style={{ listStyle: 'none' }}>
+                {dogs[index].comments.map(
+                  ({ comment, upvoteCount }, commentIndex) => (
+                    <li>
+                      {comment}
+                      <p>
+                        Votes: {upvoteCount}{' '}
+                        <button onClick={() => increaseVote(commentIndex)}>
+                          Vote
+                        </button>
+                      </p>
+                    </li>
+                  )
+                )}
+              </ul>
             </div>
             {/* comment section */}
           </div>
